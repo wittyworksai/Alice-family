@@ -1,497 +1,535 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Alice Family Expense</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Alice Family Expense&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="app"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script type="text/babel"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const { useState, useEffect } = React;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function AliceFamilyExpense() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [expenses, setExpenses] = useState([]);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [amount, setAmount] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [person, setPerson] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [category, setCategory] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [paymentMethod, setPaymentMethod] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [date, setDate] = useState(new Date().toISOString().split('T')[0]);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [familyMembers, setFamilyMembers] = useState(['Child 1', 'Child 2', 'Husband']);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [paymentMethods, setPaymentMethods] = useState(['Cash', 'Credit Card 1', 'Credit Card 2', 'Wire Transfer', 'Debit Card']);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [newMember, setNewMember] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [newPayment, setNewPayment] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [filter, setFilter] = useState('all');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [showReports, setShowReports] = useState(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [reportType, setReportType] = useState('person');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [dateFrom, setDateFrom] = useState('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const [dateTo, setDateTo] = useState('');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loadData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, []);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>saveData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, [expenses, familyMembers, paymentMethods]);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const loadData = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const expensesData = localStorage.getItem('alice-family-expenses');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const membersData = localStorage.getItem('alice-family-members');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const paymentsData = localStorage.getItem('alice-payment-methods');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (expensesData) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>setExpenses(JSON.parse(expensesData));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (membersData) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>setFamilyMembers(JSON.parse(membersData));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (paymentsData) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>setPaymentMethods(JSON.parse(paymentsData));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (error) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.log('No saved data found');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const saveData = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>localStorage.setItem('alice-family-expenses', JSON.stringify(expenses));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>localStorage.setItem('alice-family-members', JSON.stringify(familyMembers));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>localStorage.setItem('alice-payment-methods', JSON.stringify(paymentMethods));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (error) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.error('Error saving data:', error);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const addExpense = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (amount &amp;&amp; person &amp;&amp; category &amp;&amp; paymentMethod) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const newExpense = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>id: Date.now(),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>amount: parseFloat(amount),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>person,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>category,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>paymentMethod,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>date</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setExpenses([newExpense, ...expenses]);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setAmount('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setCategory('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const deleteExpense = (id) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setExpenses(expenses.filter(e =&gt; e.id !== id));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const addFamilyMember = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (newMember &amp;&amp; !familyMembers.includes(newMember)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setFamilyMembers([...familyMembers, newMember]);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setNewMember('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const removeFamilyMember = (member) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setFamilyMembers(familyMembers.filter(m =&gt; m !== member));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const addPaymentMethod = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (newPayment &amp;&amp; !paymentMethods.includes(newPayment)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setPaymentMethods([...paymentMethods, newPayment]);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setNewPayment('');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const removePaymentMethod = (method) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setPaymentMethods(paymentMethods.filter(m =&gt; m !== method));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const filteredExpenses = filter === 'all'<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>? expenses<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>: expenses.filter(e =&gt; e.person === filter);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const getTotalByPerson = (person) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return expenses</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.filter(e =&gt; e.person === person)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.reduce((sum, e) =&gt; sum + e.amount, 0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const totalExpenses = expenses.reduce((sum, e) =&gt; sum + e.amount, 0);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const getReportData = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let filtered = expenses;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (dateFrom) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>filtered = filtered.filter(e =&gt; e.date &gt;= dateFrom);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (dateTo) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>filtered = filtered.filter(e =&gt; e.date &lt;= dateTo);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const grouped = {};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (reportType === 'person') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>filtered.forEach(expense =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!grouped[expense.person]) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>grouped[expense.person] = { total: 0, count: 0, expenses: [] };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.person].total += expense.amount;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.person].count += 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.person].expenses.push(expense);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (reportType === 'payment') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>filtered.forEach(expense =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!grouped[expense.paymentMethod]) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>grouped[expense.paymentMethod] = { total: 0, count: 0, expenses: [] };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.paymentMethod].total += expense.amount;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.paymentMethod].count += 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.paymentMethod].expenses.push(expense);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (reportType === 'date') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>filtered.forEach(expense =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!grouped[expense.date]) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>grouped[expense.date] = { total: 0, count: 0, expenses: [] };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.date].total += expense.amount;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.date].count += 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>grouped[expense.date].expenses.push(expense);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return grouped;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="p-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="max-w-4xl mx-auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div className="bg-white rounded-2xl shadow-xl p-6 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="flex items-center gap-3 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h1 className="text-3xl font-bold text-gray-800"&gt;Alice Family Expense&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Add Expense Form */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-purple-50 rounded-xl p-4 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h2 className="text-lg font-semibold mb-3 text-gray-700"&gt;Add New Expense&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="grid grid-cols-1 md:grid-cols-2 gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>type="number"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>placeholder="Amount"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={amount}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setAmount(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;select</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={person}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setPerson(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;option value=""&gt;Select Person&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>{familyMembers.map(member =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;option key={member} value={member}&gt;{member}&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>type="text"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>placeholder="Category (e.g., Food, Clothes)"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={category}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setCategory(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;select</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={paymentMethod}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setPaymentMethod(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;option value=""&gt;Select Payment Method&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>{paymentMethods.map(method =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;option key={method} value={method}&gt;{method}&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>type="date"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={date}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setDate(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent md:col-span-2"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>onClick={addExpense}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>className="mt-3 w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition flex items-center justify-center gap-2"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>Add Expense</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Manage Family Members */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-pink-50 rounded-xl p-4 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h2 className="text-lg font-semibold mb-3 text-gray-700"&gt;Manage Family Members&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex gap-2 mb-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>type="text"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>placeholder="Add new member"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={newMember}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setNewMember(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onClick={addFamilyMember}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>Add</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex flex-wrap gap-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>{familyMembers.map(member =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={member} className="bg-white px-3 py-1 rounded-full flex items-center gap-2 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;span className="text-sm"&gt;{member}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>onClick={() =&gt; removeFamilyMember(member)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>className="text-red-500 hover:text-red-700 font-bold"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>×</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Manage Payment Methods */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-blue-50 rounded-xl p-4 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h2 className="text-lg font-semibold mb-3 text-gray-700"&gt;Manage Payment Methods&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex gap-2 mb-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>type="text"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>placeholder="Add new payment method"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>value={newPayment}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onChange={(e) =&gt; setNewPayment(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>onClick={addPaymentMethod}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>Add</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex flex-wrap gap-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>{paymentMethods.map(method =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={method} className="bg-white px-3 py-1 rounded-full flex items-center gap-2 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;span className="text-sm"&gt;{method}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>onClick={() =&gt; removePaymentMethod(method)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>className="text-red-500 hover:text-red-700 font-bold"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>×</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Summary */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="flex items-center gap-2 mb-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;h2 className="text-lg font-semibold text-gray-700"&gt;Summary&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="grid grid-cols-2 md:grid-cols-4 gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="bg-white rounded-lg p-3 text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p className="text-sm text-gray-600"&gt;Total&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p className="text-xl font-bold text-purple-600"&gt;${totalExpenses.toFixed(2)}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>{familyMembers.map(member =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={member} className="bg-white rounded-lg p-3 text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-sm text-gray-600"&gt;{member}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-xl font-bold text-pink-600"&gt;${getTotalByPerson(member).toFixed(2)}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Filter and Reports Button */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="mb-4 flex flex-wrap items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;select</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>value={filter}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>onChange={(e) =&gt; setFilter(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;option value="all"&gt;All Expenses&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>{familyMembers.map(member =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;option key={member} value={member}&gt;{member}&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>onClick={() =&gt; setShowReports(!showReports)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition flex items-center gap-2"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>{showReports ? 'Hide Reports' : 'View Reports'}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Reports Section */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{showReports &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;h2 className="text-lg font-semibold mb-4 text-gray-700"&gt;Detailed Reports&lt;/h2&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                                    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;label className="block text-sm font-medium text-gray-700 mb-1"&gt;Report Type&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;select</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>value={reportType}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>onChange={(e) =&gt; setReportType(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;option value="person"&gt;By Person&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;option value="payment"&gt;By Payment Method&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;option value="date"&gt;By Date&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;label className="block text-sm font-medium text-gray-700 mb-1"&gt;From Date&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>type="date"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>value={dateFrom}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>onChange={(e) =&gt; setDateFrom(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;label className="block text-sm font-medium text-gray-700 mb-1"&gt;To Date&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;input</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>type="date"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>value={dateTo}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>onChange={(e) =&gt; setDateTo(e.target.value)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div className="space-y-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>{Object.entries(getReportData())</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>.sort(([, a], [, b]) =&gt; b.total - a.total)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>.map(([key, data]) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;div key={key} className="bg-white rounded-lg p-4 shadow-sm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="flex items-center justify-between mb-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;h3 className="font-semibold text-gray-800"&gt;{key}&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;div className="text-right"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div className="text-2xl font-bold text-purple-600"&gt;${data.total.toFixed(2)}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div className="text-sm text-gray-500"&gt;{data.count} transaction{data.count !== 1 ? 's' : ''}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;div className="mt-3 space-y-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                        </span>{data.expenses.map(expense =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;div key={expense.id} className="flex items-center justify-between text-sm bg-gray-50 p-2 rounded"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                </span>&lt;div className="flex flex-wrap items-center gap-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;span className="text-gray-600"&gt;{expense.date}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;span className="text-gray-400"&gt;•&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>&lt;span className="text-gray-700"&gt;{expense.category}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>{reportType !== 'person' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;span className="text-gray-400"&gt;•&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;span className="text-gray-600"&gt;{expense.person}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>{reportType !== 'payment' &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;span className="text-gray-400"&gt;•&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                            </span>&lt;span className="text-gray-600"&gt;{expense.paymentMethod}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                        </span>&lt;/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                    </span>)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                                </span>&lt;span className="font-semibold text-purple-600 whitespace-nowrap ml-2"&gt;${expense.amount.toFixed(2)}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                        </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>{Object.keys(getReportData()).length === 0 &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;p className="text-center text-gray-500 py-4"&gt;No expenses found for the selected criteria&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>)}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>{/* Expenses List */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="space-y-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>{filteredExpenses.length === 0 ? (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-center text-gray-500 py-8"&gt;No expenses yet. Add your first expense above!&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>) : (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>filteredExpenses.map(expense =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;div key={expense.id} className="bg-gray-50 rounded-lg p-4 flex items-center justify-between hover:bg-gray-100 transition"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="flex-1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;div className="flex items-center gap-2 mb-1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;span className="font-semibold text-gray-800"&gt;{expense.person}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;span className="text-sm text-gray-500"&gt;• {expense.category}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;div className="flex flex-wrap items-center gap-2 text-sm text-gray-600"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;span&gt;{expense.date}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>&lt;span&gt;• {expense.paymentMethod}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div className="flex items-center gap-3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;span className="text-xl font-bold text-purple-600"&gt;${expense.amount.toFixed(2)}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;button</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>onClick={() =&gt; deleteExpense(expense.id)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>className="text-red-500 hover:text-red-700 transition text-2xl font-bold"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                    </span>×</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>))</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const root = ReactDOM.createRoot(document.getElementById('app'));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>root.render(&lt;AliceFamilyExpense /&gt;);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<body class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+    <div id="app"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function AliceFamilyExpense() {
+            const [expenses, setExpenses] = useState([]);
+            const [amount, setAmount] = useState('');
+            const [person, setPerson] = useState('');
+            const [category, setCategory] = useState('');
+            const [paymentMethod, setPaymentMethod] = useState('');
+            const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+            const [familyMembers, setFamilyMembers] = useState(['Child 1', 'Child 2', 'Husband']);
+            const [paymentMethods, setPaymentMethods] = useState(['Cash', 'Credit Card 1', 'Credit Card 2', 'Wire Transfer', 'Debit Card']);
+            const [newMember, setNewMember] = useState('');
+            const [newPayment, setNewPayment] = useState('');
+            const [filter, setFilter] = useState('all');
+            const [showReports, setShowReports] = useState(false);
+            const [reportType, setReportType] = useState('person');
+            const [dateFrom, setDateFrom] = useState('');
+            const [dateTo, setDateTo] = useState('');
+
+            useEffect(() => {
+                loadData();
+            }, []);
+
+            useEffect(() => {
+                saveData();
+            }, [expenses, familyMembers, paymentMethods]);
+
+            const loadData = () => {
+                try {
+                    const expensesData = localStorage.getItem('alice-family-expenses');
+                    const membersData = localStorage.getItem('alice-family-members');
+                    const paymentsData = localStorage.getItem('alice-payment-methods');
+                    
+                    if (expensesData) {
+                        setExpenses(JSON.parse(expensesData));
+                    }
+                    if (membersData) {
+                        setFamilyMembers(JSON.parse(membersData));
+                    }
+                    if (paymentsData) {
+                        setPaymentMethods(JSON.parse(paymentsData));
+                    }
+                } catch (error) {
+                    console.log('No saved data found');
+                }
+            };
+
+            const saveData = () => {
+                try {
+                    localStorage.setItem('alice-family-expenses', JSON.stringify(expenses));
+                    localStorage.setItem('alice-family-members', JSON.stringify(familyMembers));
+                    localStorage.setItem('alice-payment-methods', JSON.stringify(paymentMethods));
+                } catch (error) {
+                    console.error('Error saving data:', error);
+                }
+            };
+
+            const addExpense = () => {
+                if (amount && person && category && paymentMethod) {
+                    const newExpense = {
+                        id: Date.now(),
+                        amount: parseFloat(amount),
+                        person,
+                        category,
+                        paymentMethod,
+                        date
+                    };
+                    setExpenses([newExpense, ...expenses]);
+                    setAmount('');
+                    setCategory('');
+                }
+            };
+
+            const deleteExpense = (id) => {
+                setExpenses(expenses.filter(e => e.id !== id));
+            };
+
+            const addFamilyMember = () => {
+                if (newMember && !familyMembers.includes(newMember)) {
+                    setFamilyMembers([...familyMembers, newMember]);
+                    setNewMember('');
+                }
+            };
+
+            const removeFamilyMember = (member) => {
+                setFamilyMembers(familyMembers.filter(m => m !== member));
+            };
+
+            const addPaymentMethod = () => {
+                if (newPayment && !paymentMethods.includes(newPayment)) {
+                    setPaymentMethods([...paymentMethods, newPayment]);
+                    setNewPayment('');
+                }
+            };
+
+            const removePaymentMethod = (method) => {
+                setPaymentMethods(paymentMethods.filter(m => m !== method));
+            };
+
+            const filteredExpenses = filter === 'all' 
+                ? expenses 
+                : expenses.filter(e => e.person === filter);
+
+            const getTotalByPerson = (person) => {
+                return expenses
+                    .filter(e => e.person === person)
+                    .reduce((sum, e) => sum + e.amount, 0);
+            };
+
+            const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
+
+            const getReportData = () => {
+                let filtered = expenses;
+                
+                if (dateFrom) {
+                    filtered = filtered.filter(e => e.date >= dateFrom);
+                }
+                if (dateTo) {
+                    filtered = filtered.filter(e => e.date <= dateTo);
+                }
+
+                const grouped = {};
+
+                if (reportType === 'person') {
+                    filtered.forEach(expense => {
+                        if (!grouped[expense.person]) {
+                            grouped[expense.person] = { total: 0, count: 0, expenses: [] };
+                        }
+                        grouped[expense.person].total += expense.amount;
+                        grouped[expense.person].count += 1;
+                        grouped[expense.person].expenses.push(expense);
+                    });
+                } else if (reportType === 'payment') {
+                    filtered.forEach(expense => {
+                        if (!grouped[expense.paymentMethod]) {
+                            grouped[expense.paymentMethod] = { total: 0, count: 0, expenses: [] };
+                        }
+                        grouped[expense.paymentMethod].total += expense.amount;
+                        grouped[expense.paymentMethod].count += 1;
+                        grouped[expense.paymentMethod].expenses.push(expense);
+                    });
+                } else if (reportType === 'date') {
+                    filtered.forEach(expense => {
+                        if (!grouped[expense.date]) {
+                            grouped[expense.date] = { total: 0, count: 0, expenses: [] };
+                        }
+                        grouped[expense.date].total += expense.amount;
+                        grouped[expense.date].count += 1;
+                        grouped[expense.date].expenses.push(expense);
+                    });
+                }
+
+                return grouped;
+            };
+
+            const shareReport = () => {
+                const reportData = getReportData();
+                const reportTypeLabel = reportType === 'person' ? 'By Person' : reportType === 'payment' ? 'By Payment Method' : 'By Date';
+                const dateRange = (dateFrom || dateTo) ? `(${dateFrom || 'start'} to ${dateTo || 'today'})` : '(All time)';
+                
+                let reportText = `ALICE FAMILY EXPENSE REPORT\n`;
+                reportText += `Report Type: ${reportTypeLabel} ${dateRange}\n`;
+                reportText += `Generated: ${new Date().toLocaleDateString()}\n`;
+                reportText += `\n${'='.repeat(50)}\n\n`;
+
+                const sortedData = Object.entries(reportData).sort(([, a], [, b]) => b.total - a.total);
+                
+                sortedData.forEach(([key, data]) => {
+                    reportText += `${key.toUpperCase()}\n`;
+                    reportText += `Total: ${data.total.toFixed(2)} (${data.count} transaction${data.count !== 1 ? 's' : ''})\n`;
+                    reportText += `${'-'.repeat(50)}\n`;
+                    
+                    data.expenses.forEach(expense => {
+                        reportText += `  ${expense.date} - ${expense.category} - ${expense.amount.toFixed(2)}\n`;
+                        if (reportType !== 'person') reportText += `    Person: ${expense.person}\n`;
+                        if (reportType !== 'payment') reportText += `    Payment: ${expense.paymentMethod}\n`;
+                    });
+                    reportText += `\n`;
+                });
+
+                const grandTotal = sortedData.reduce((sum, [, data]) => sum + data.total, 0);
+                reportText += `${'='.repeat(50)}\n`;
+                reportText += `GRAND TOTAL: ${grandTotal.toFixed(2)}\n`;
+
+                // Copy to clipboard
+                navigator.clipboard.writeText(reportText).then(() => {
+                    alert('Report copied to clipboard! You can now paste it into WhatsApp, email, or any messaging app.');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = reportText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Report copied to clipboard! You can now paste it into WhatsApp, email, or any messaging app.');
+                });
+            };
+
+            return (
+                <div className="p-4">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+                            <div className="flex items-center gap-3 mb-6">
+                                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <h1 className="text-3xl font-bold text-gray-800">Alice Family Expense</h1>
+                            </div>
+
+                            {/* Add Expense Form */}
+                            <div className="bg-purple-50 rounded-xl p-4 mb-6">
+                                <h2 className="text-lg font-semibold mb-3 text-gray-700">Add New Expense</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <input
+                                        type="number"
+                                        placeholder="Amount"
+                                        value={amount}
+                                        onChange={(e) => setAmount(e.target.value)}
+                                        className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    />
+                                    <select
+                                        value={person}
+                                        onChange={(e) => setPerson(e.target.value)}
+                                        className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    >
+                                        <option value="">Select Person</option>
+                                        {familyMembers.map(member => (
+                                            <option key={member} value={member}>{member}</option>
+                                        ))}
+                                    </select>
+                                    <input
+                                        type="text"
+                                        placeholder="Category (e.g., Food, Clothes)"
+                                        value={category}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    />
+                                    <select
+                                        value={paymentMethod}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                        className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    >
+                                        <option value="">Select Payment Method</option>
+                                        {paymentMethods.map(method => (
+                                            <option key={method} value={method}>{method}</option>
+                                        ))}
+                                    </select>
+                                    <input
+                                        type="date"
+                                        value={date}
+                                        onChange={(e) => setDate(e.target.value)}
+                                        className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent md:col-span-2"
+                                    />
+                                </div>
+                                <button
+                                    onClick={addExpense}
+                                    className="mt-3 w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition flex items-center justify-center gap-2"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                    </svg>
+                                    Add Expense
+                                </button>
+                            </div>
+
+                            {/* Manage Family Members */}
+                            <div className="bg-pink-50 rounded-xl p-4 mb-6">
+                                <h2 className="text-lg font-semibold mb-3 text-gray-700">Manage Family Members</h2>
+                                <div className="flex gap-2 mb-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Add new member"
+                                        value={newMember}
+                                        onChange={(e) => setNewMember(e.target.value)}
+                                        className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                                    />
+                                    <button
+                                        onClick={addFamilyMember}
+                                        className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition"
+                                    >
+                                        Add
+                                    </button>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {familyMembers.map(member => (
+                                        <div key={member} className="bg-white px-3 py-1 rounded-full flex items-center gap-2 shadow-sm">
+                                            <span className="text-sm">{member}</span>
+                                            <button
+                                                onClick={() => removeFamilyMember(member)}
+                                                className="text-red-500 hover:text-red-700 font-bold"
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Manage Payment Methods */}
+                            <div className="bg-blue-50 rounded-xl p-4 mb-6">
+                                <h2 className="text-lg font-semibold mb-3 text-gray-700">Manage Payment Methods</h2>
+                                <div className="flex gap-2 mb-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Add new payment method"
+                                        value={newPayment}
+                                        onChange={(e) => setNewPayment(e.target.value)}
+                                        className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    />
+                                    <button
+                                        onClick={addPaymentMethod}
+                                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                                    >
+                                        Add
+                                    </button>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {paymentMethods.map(method => (
+                                        <div key={method} className="bg-white px-3 py-1 rounded-full flex items-center gap-2 shadow-sm">
+                                            <span className="text-sm">{method}</span>
+                                            <button
+                                                onClick={() => removePaymentMethod(method)}
+                                                className="text-red-500 hover:text-red-700 font-bold"
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Summary */}
+                            <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4 mb-6">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <h2 className="text-lg font-semibold text-gray-700">Summary</h2>
+                                </div>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    <div className="bg-white rounded-lg p-3 text-center">
+                                        <p className="text-sm text-gray-600">Total</p>
+                                        <p className="text-xl font-bold text-purple-600">${totalExpenses.toFixed(2)}</p>
+                                    </div>
+                                    {familyMembers.map(member => (
+                                        <div key={member} className="bg-white rounded-lg p-3 text-center">
+                                            <p className="text-sm text-gray-600">{member}</p>
+                                            <p className="text-xl font-bold text-pink-600">${getTotalByPerson(member).toFixed(2)}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Filter and Reports Button */}
+                            <div className="mb-4 flex flex-wrap items-center gap-3">
+                                <select
+                                    value={filter}
+                                    onChange={(e) => setFilter(e.target.value)}
+                                    className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                >
+                                    <option value="all">All Expenses</option>
+                                    {familyMembers.map(member => (
+                                        <option key={member} value={member}>{member}</option>
+                                    ))}
+                                </select>
+                                <button
+                                    onClick={() => setShowReports(!showReports)}
+                                    className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition flex items-center gap-2"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    {showReports ? 'Hide Reports' : 'View Reports'}
+                                </button>
+                            </div>
+
+                            {/* Reports Section */}
+                            {showReports && (
+                                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h2 className="text-lg font-semibold text-gray-700">Detailed Reports</h2>
+                                        <button
+                                            onClick={shareReport}
+                                            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition flex items-center gap-2 text-sm"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                            </svg>
+                                            Share Report
+                                        </button>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Report Type</label>
+                                            <select
+                                                value={reportType}
+                                                onChange={(e) => setReportType(e.target.value)}
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            >
+                                                <option value="person">By Person</option>
+                                                <option value="payment">By Payment Method</option>
+                                                <option value="date">By Date</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">From Date</label>
+                                            <input
+                                                type="date"
+                                                value={dateFrom}
+                                                onChange={(e) => setDateFrom(e.target.value)}
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">To Date</label>
+                                            <input
+                                                type="date"
+                                                value={dateTo}
+                                                onChange={(e) => setDateTo(e.target.value)}
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        {Object.entries(getReportData())
+                                            .sort(([, a], [, b]) => b.total - a.total)
+                                            .map(([key, data]) => (
+                                                <div key={key} className="bg-white rounded-lg p-4 shadow-sm">
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <h3 className="font-semibold text-gray-800">{key}</h3>
+                                                        <div className="text-right">
+                                                            <div className="text-2xl font-bold text-purple-600">${data.total.toFixed(2)}</div>
+                                                            <div className="text-sm text-gray-500">{data.count} transaction{data.count !== 1 ? 's' : ''}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-3 space-y-2">
+                                                        {data.expenses.map(expense => (
+                                                            <div key={expense.id} className="flex items-center justify-between text-sm bg-gray-50 p-2 rounded">
+                                                                <div className="flex flex-wrap items-center gap-2">
+                                                                    <span className="text-gray-600">{expense.date}</span>
+                                                                    <span className="text-gray-400">•</span>
+                                                                    <span className="text-gray-700">{expense.category}</span>
+                                                                    {reportType !== 'person' && (
+                                                                        <>
+                                                                            <span className="text-gray-400">•</span>
+                                                                            <span className="text-gray-600">{expense.person}</span>
+                                                                        </>
+                                                                    )}
+                                                                    {reportType !== 'payment' && (
+                                                                        <>
+                                                                            <span className="text-gray-400">•</span>
+                                                                            <span className="text-gray-600">{expense.paymentMethod}</span>
+                                                                        </>
+                                                                    )}
+                                                                </div>
+                                                                <span className="font-semibold text-purple-600 whitespace-nowrap ml-2">${expense.amount.toFixed(2)}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        {Object.keys(getReportData()).length === 0 && (
+                                            <p className="text-center text-gray-500 py-4">No expenses found for the selected criteria</p>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Expenses List */}
+                            <div className="space-y-3">
+                                {filteredExpenses.length === 0 ? (
+                                    <p className="text-center text-gray-500 py-8">No expenses yet. Add your first expense above!</p>
+                                ) : (
+                                    filteredExpenses.map(expense => (
+                                        <div key={expense.id} className="bg-gray-50 rounded-lg p-4 flex items-center justify-between hover:bg-gray-100 transition">
+                                            <div className="flex-1">
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <span className="font-semibold text-gray-800">{expense.person}</span>
+                                                    <span className="text-sm text-gray-500">• {expense.category}</span>
+                                                </div>
+                                                <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+                                                    <span>{expense.date}</span>
+                                                    <span>• {expense.paymentMethod}</span>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <span className="text-xl font-bold text-purple-600">${expense.amount.toFixed(2)}</span>
+                                                <button
+                                                    onClick={() => deleteExpense(expense.id)}
+                                                    className="text-red-500 hover:text-red-700 transition text-2xl font-bold"
+                                                >
+                                                    ×
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('app'));
+        root.render(<AliceFamilyExpense />);
+    </script>
 </body>
 </html>
